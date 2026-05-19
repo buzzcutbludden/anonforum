@@ -9,100 +9,58 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #f8f9fc;
-      --surface: #ffffff;
-      --border: #e2e8f0;
-      --text: #0f172a;
-      --text-muted: #64748b;
-      --primary: #3b82f6;
-      --primary-hover: #2563eb;
-      --success: #10b981;
-      --error: #ef4444;
-      --radius: 12px;
+      --bg: #f8f9fc; --surface: #ffffff; --border: #e2e8f0; --text: #0f172a;
+      --text-muted: #64748b; --primary: #3b82f6; --primary-hover: #2563eb;
+      --success: #10b981; --error: #ef4444; --radius: 12px;
       --shadow: 0 4px 12px rgba(0,0,0,0.06);
       --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
     @media (prefers-color-scheme: dark) {
       :root {
-        --bg: #0b1120;
-        --surface: #1e293b;
-        --border: #334155;
-        --text: #f1f5f9;
-        --text-muted: #94a3b8;
+        --bg: #0b1120; --surface: #1e293b; --border: #334155;
+        --text: #f1f5f9; --text-muted: #94a3b8;
         --shadow: 0 4px 12px rgba(0,0,0,0.25);
       }
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: 'Inter', system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      min-height: 100vh;
+      font-family: 'Inter', system-ui, sans-serif; background: var(--bg);
+      color: var(--text); line-height: 1.6; min-height: 100vh;
     }
     header {
-      background: var(--surface);
-      border-bottom: 1px solid var(--border);
-      padding: 1rem 1.5rem;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      background: var(--surface); border-bottom: 1px solid var(--border);
+      padding: 1rem 1.5rem; position: sticky; top: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
       backdrop-filter: blur(12px);
     }
     .logo { font-weight: 700; font-size: 1.25rem; letter-spacing: -0.02em; }
     .anon-badge {
-      background: rgba(59, 130, 246, 0.1);
-      color: var(--primary);
-      padding: 0.35rem 0.75rem;
-      border-radius: 99px;
-      font-size: 0.8rem;
-      font-weight: 500;
+      background: rgba(59, 130, 246, 0.1); color: var(--primary);
+      padding: 0.35rem 0.75rem; border-radius: 99px;
+      font-size: 0.8rem; font-weight: 500;
     }
     main { max-width: 800px; margin: 0 auto; padding: 2rem 1rem; }
     .view {
-      opacity: 0;
-      transform: translateY(8px);
-      transition: var(--transition);
-      pointer-events: none;
-      position: absolute;
-      width: 100%;
-      padding: 0 1rem;
+      opacity: 0; transform: translateY(8px); transition: var(--transition);
+      pointer-events: none; position: absolute; width: 100%; padding: 0 1rem;
     }
     .view.active {
-      opacity: 1;
-      transform: translateY(0);
-      pointer-events: auto;
-      position: relative;
+      opacity: 1; transform: translateY(0); pointer-events: auto; position: relative;
     }
     .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.25rem;
-      margin-bottom: 1rem;
-      box-shadow: var(--shadow);
-      transition: var(--transition);
-      cursor: pointer;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.25rem; margin-bottom: 1rem;
+      box-shadow: var(--shadow); transition: var(--transition); cursor: pointer;
     }
     .card:hover { transform: translateY(-2px); box-shadow: 0 8px 16px rgba(0,0,0,0.08); }
     .card h3 { font-size: 1.1rem; margin-bottom: 0.25rem; }
     .card p { color: var(--text-muted); font-size: 0.9rem; }
     .meta { display: flex; justify-content: space-between; align-items: center; margin-top: 0.5rem; font-size: 0.8rem; color: var(--text-muted); }
     .btn {
-      background: var(--primary);
-      color: white;
-      border: none;
-      padding: 0.65rem 1.2rem;
-      border-radius: 8px;
-      font-weight: 500;
-      cursor: pointer;
-      transition: var(--transition);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
+      background: var(--primary); color: white; border: none;
+      padding: 0.65rem 1.2rem; border-radius: 8px; font-weight: 500;
+      cursor: pointer; transition: var(--transition);
+      display: inline-flex; align-items: center; gap: 0.5rem;
     }
     .btn:hover { background: var(--primary-hover); transform: scale(1.02); }
     .btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
@@ -111,26 +69,17 @@
     .form-group { margin-bottom: 1rem; }
     label { display: block; font-size: 0.9rem; margin-bottom: 0.4rem; font-weight: 500; }
     input, textarea {
-      width: 100%;
-      padding: 0.75rem;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      background: var(--surface);
-      color: var(--text);
-      font-family: inherit;
-      transition: var(--transition);
+      width: 100%; padding: 0.75rem; border: 1px solid var(--border);
+      border-radius: 8px; background: var(--surface); color: var(--text);
+      font-family: inherit; transition: var(--transition);
     }
     input:focus, textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(59,130,246,0.2); }
     textarea { min-height: 100px; resize: vertical; }
     .toast-container { position: fixed; bottom: 2rem; right: 2rem; z-index: 999; display: flex; flex-direction: column; gap: 0.5rem; }
     .toast {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      padding: 0.75rem 1rem;
-      border-radius: 8px;
-      box-shadow: var(--shadow);
-      animation: slideIn 0.3s ease forwards;
-      max-width: 300px;
+      background: var(--surface); border: 1px solid var(--border);
+      padding: 0.75rem 1rem; border-radius: 8px; box-shadow: var(--shadow);
+      animation: slideIn 0.3s ease forwards; max-width: 300px;
     }
     .toast.success { border-left: 4px solid var(--success); }
     .toast.error { border-left: 4px solid var(--error); }
@@ -138,10 +87,7 @@
     .loader { width: 16px; height: 16px; border: 2px solid white; border-top: 2px solid transparent; border-radius: 50%; animation: spin 0.8s linear infinite; }
     @keyframes spin { to { transform: rotate(360deg); } }
     .empty-state { text-align: center; padding: 4rem 1rem; color: var(--text-muted); }
-    @media (max-width: 640px) {
-      main { padding: 1.5rem 0.75rem; }
-      .view { padding: 0; }
-    }
+    @media (max-width: 640px) { main { padding: 1.5rem 0.75rem; } .view { padding: 0; } }
   </style>
 </head>
 <body>
@@ -158,12 +104,16 @@
 
   <div class="toast-container" id="toastContainer"></div>
 
+  <!-- ✅ Supabase JS Client (ONLY ONCE) -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  
+  <!-- ✅ App Logic (ONLY ONCE) -->
   <script>
-    // 🔧 CONFIGURATION
-    const SUPABASE_URL = 'https://rkiajxqvjcnvldsfzmcf.supabase.co';
+    // 🔧 CONFIGURATION - UPDATE THESE VALUES
+    const SUPABASE_URL = 'https://rkiajxqvjcnvldsfzmcf.supabase.co'; // ✅ No /rest/v1/
     const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJraWFqeHF2amNudmxkc2Z6bWNmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzkxNzI2MjMsImV4cCI6MjA5NDc0ODYyM30.I6ErjefX6iwin-FmuXMF7-yEgeftFOB_xZXowROUnec';
 
+    // ✅ Initialize Supabase client (ONLY ONCE)
     const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
     // 🕵️ Anonymous Identity
@@ -206,7 +156,7 @@
       switchView('forums-view');
 
       const { data, error } = await supabase.from('forums').select('*').order('created_at', { ascending: false });
-      if (error) return showToast('Failed to load forums', 'error');
+      if (error) return showToast('Failed to load forums: ' + error.message, 'error');
 
       view.innerHTML = data.length ? '' : '<div class="empty-state">No forums yet.</div>';
       data.forEach(f => {
@@ -230,7 +180,7 @@
         .select('id, title, created_at, author_id')
         .eq('forum_id', forumId)
         .order('created_at', { ascending: false });
-      if (error) return showToast('Failed to load threads', 'error');
+      if (error) return showToast('Failed to load threads: ' + error.message, 'error');
 
       const list = document.getElementById('threads-list');
       list.innerHTML = data.length ? '' : '<div class="empty-state">No threads yet. Start one!</div>';
@@ -246,7 +196,7 @@
     async function loadThread(threadId) {
       currentThreadId = threadId;
       const view = document.getElementById('thread-view');
-      view.innerHTML = `<button class="btn btn-ghost" onclick="loadThreads(currentForumId, document.querySelector('#threads-view h2').textContent)">← Back to Threads</button>
+      view.innerHTML = `<button class="btn btn-ghost" onclick="loadThreads(currentForumId, document.querySelector('#threads-view h2')?.textContent || 'Threads')">← Back to Threads</button>
                         <div id="thread-content" style="margin-top: 1.5rem;"></div>
                         <div style="margin-top: 2rem; border-top: 1px solid var(--border); padding-top: 1.5rem;">
                           <div class="form-group">
@@ -258,7 +208,7 @@
       switchView('thread-view');
 
       const { data, error } = await supabase.from('posts').select('*').eq('thread_id', threadId).order('created_at', { ascending: true });
-      if (error) return showToast('Failed to load posts', 'error');
+      if (error) return showToast('Failed to load posts: ' + error.message, 'error');
 
       const container = document.getElementById('thread-content');
       container.innerHTML = data.length ? '' : '<div class="empty-state">Be the first to reply.</div>';
@@ -285,9 +235,9 @@
         btn.disabled = false;
         btn.textContent = 'Post Reply';
         document.getElementById('replyContent').value = '';
-        if (error) return showToast('Failed to post reply', 'error');
+        if (error) return showToast('Failed to post reply: ' + error.message, 'error');
         showToast('Reply posted!');
-        loadThread(threadId); // Refresh
+        loadThread(threadId);
       };
     }
 
@@ -304,8 +254,10 @@
     }
 
     // 🚀 Init
-    loadForums();
-    setupRealtime();
+    document.addEventListener('DOMContentLoaded', () => {
+      loadForums();
+      setupRealtime();
+    });
   </script>
 </body>
 </html>
